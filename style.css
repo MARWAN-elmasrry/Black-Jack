@@ -1,49 +1,132 @@
-body{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+:root {
+    --felt-dark: #064c1f;
+    --felt-light: #0b7d34;
+    --gold: #f4c44e;
+    --panel: rgba(5, 24, 13, 0.72);
+    --text: #fef6df;
+    --danger: #f97373;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: green;
-    height: 100vh;
-    font-weight: bold;
-    color:antiquewhite;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, var(--felt-light), var(--felt-dark));
+    color: var(--text);
 }
-.container{
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.head-cont{
+
+.table-wrap {
+    min-height: 100vh;
     display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.game-card {
+    width: min(560px, 100%);
+    background: var(--panel);
+    border: 2px solid rgba(244, 196, 78, 0.45);
+    border-radius: 22px;
+    padding: 1.5rem;
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    margin: 0;
+    color: var(--gold);
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.status {
+    text-align: center;
+    margin: 0.75rem 0 1.1rem;
+    font-style: italic;
+}
+
+.hand-block {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hand-block h2 {
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hand-block p {
+    margin: 0.25rem 0;
+}
+
+.bankroll {
+    text-align: center;
+    font-weight: 700;
+    margin: 0.75rem 0;
+}
+
+.bet-row {
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    gap: 0.5rem;
+    margin: 0.8rem 0 1rem;
 }
-.head-cont .game{
-    border-radius: 20px;
-    text-align: center;
-    max-width: 280px;
-    min-width: 250px;
-    height: 260px;
-}
-.head-cont .game h1{
-    color: goldenrod;
-    font-size: 48px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-.head-cont .game p{
-    font-size: 20px;
-}
-.head-cont .game button{
-    background-color: goldenrod;
+
+.bet-row input {
+    width: 100px;
+    background: #fffef7;
+    color: #11361b;
     border: none;
-    margin-bottom: 4px;
-    font-size: 20px;
-    font-weight: bold;
-    /* padding:4px 25px; */
-    width: 220px;
-    height: 30px;
-    border-radius: 4px;
-    color: green;
+    border-radius: 8px;
+    padding: 0.45rem;
+    font-weight: 700;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+    gap: 0.6rem;
+}
+
+button {
+    background: var(--gold);
+    color: #143d1f;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    min-height: 40px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+button.secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 450px) {
+    .actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lost {
+    color: var(--danger);
 }
