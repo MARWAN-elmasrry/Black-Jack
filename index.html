@@ -7,21 +7,38 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="head-cont">
-                <div class="game">
-                    <h1>Black Jack</h1>
-                    <p id="message-el">Want to play ?</p>
-                    <p id="cards-el">Cards :</p>
-                    <p id="sum-el">Sum :</p>
-                    <button onclick="startGame()">START GAME</button>
-                    <button onclick="newCard()">NEW CARD</button>
-                    <p id="player-el"></p>
-                </div>
+    <main class="table-wrap">
+        <section class="game-card">
+            <h1>Black Jack</h1>
+            <p id="message-el" class="status">Place your bet and press Start Round.</p>
+
+            <div class="hand-block dealer">
+                <h2>Dealer</h2>
+                <p id="dealer-cards-el">Cards: -</p>
+                <p id="dealer-sum-el">Sum: -</p>
             </div>
-        </div>
-    </div>
+
+            <div class="hand-block player">
+                <h2>Player</h2>
+                <p id="cards-el">Cards: -</p>
+                <p id="sum-el">Sum: -</p>
+            </div>
+
+            <p id="player-el" class="bankroll"></p>
+
+            <div class="bet-row">
+                <label for="bet-input">Bet</label>
+                <input id="bet-input" type="number" min="5" step="5" value="10">
+            </div>
+
+            <div class="actions">
+                <button onclick="startGame()">START ROUND</button>
+                <button onclick="newCard()">HIT</button>
+                <button onclick="stand()">STAND</button>
+                <button onclick="resetGame()" class="secondary">RESET GAME</button>
+            </div>
+        </section>
+    </main>
     <script src="./java.js"></script>
 </body>
 </html>
